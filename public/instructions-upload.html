@@ -10,23 +10,42 @@
     <div class="container">
         <h1>CONSIGNES</h1>
         <p>Créer un logo représentant votre place de consultant chez Hardis Group.</p>
-        <form id="upload-form" method="POST" action="/api/upload" enctype="multipart/form-data">
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
             <label for="file-upload">Déposez votre fichier ici :</label>
             <input type="file" id="file-upload" name="file-upload" required>
             <button type="submit">Envoyer</button>
         </form>
 
-        <h2>Commentaires</h2>
-        <form id="feedback-form" method="POST" action="/api/feedback">
-            <label for="feedback">Laissez vos commentaires :</label>
-            <textarea id="feedback" name="feedback" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
+        <div id="file-upload-response" style="display: none; color: green;"></div>
 
         <div id="timer">Temps restant : <span id="time-remaining">10</span> secondes</div>
         <button type="button" onclick="goToFinished()">Continuer</button>
     </div>
     <script src="script.js"></script>
     <div id="error-message" style="display: none; color: red;">Retour en arrière interdit.</div>
+
+    <!-- Script pour gérer la soumission du formulaire d'envoi de fichiers -->
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const responseContainer = document.getElementById('file-upload-response');
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                responseContainer.textContent = result.message;
+                responseContainer.style.display = 'block';
+            } catch (error) {
+                responseContainer.textContent = 'Erreur lors de l\'envoi du fichier';
+                responseContainer.style.display = 'block';
+                responseContainer.style.color = 'red';
+            }
+        });
+    </script>
 </body>
 </html>
