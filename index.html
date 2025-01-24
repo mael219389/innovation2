@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Instructions et Dépôt de Fichier</title>
+    <!-- Mettre à jour les chemins des fichiers CSS -->
+    <link rel="stylesheet" href="public/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>CHALLENGE IA</h1>
-        <div class="logo-section">
-            <img src="logo.png" alt="Logo" class="small-image">
-        </div>
-        <div class="challenge-description">
-            <p>Challenge numéro 1, création de logo</p>
-        </div>
-        <button onclick="goToQuestionnaire()">Continuer</button>
+        <h1>CONSIGNES</h1>
+        <p>Créer un logo représentant votre place de consultant chez Hardis Group.</p>
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
+            <label for="file-upload">Déposez votre fichier ici :</label>
+            <input type="file" id="file-upload" name="file-upload" required>
+            <button type="button" onclick="submitForm()">Envoyer</button>
+        </form>
+        <div id="timer">Temps restant : <span id="time-remaining">10</span> secondes</div>
+        <button type="button" onclick="goToFinished()">Continuer</button>
     </div>
-    <script src="script.js"></script>
+    <!-- Mettre à jour les chemins des fichiers JavaScript -->
+    <script src="public/script.js"></script>
+    <div id="error-message" style="display: none; color: red;">Retour en arrière interdit.</div>
 </body>
 </html>
