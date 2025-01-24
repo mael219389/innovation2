@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assure que la page utilise toute la hauteur de la fenêtre */
+}
+
+.container {
+    max-width: 80%; /* Augmenter la largeur maximale */
+    padding: 40px; /* Augmenter la marge intérieure */
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Augmenter l'ombre */
+    text-align: center;
+    border-radius: 10px; /* Ajouter des coins arrondis */
+}
+
+h1 {
+    font-size: 3em; /* Augmenter la taille de police */
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2em; /* Augmenter la taille de police */
+    margin-bottom: 20px;
+}
+
+p, label {
+    font-size: 1.5em; /* Augmenter la taille de police pour les paragraphes et labels */
+}
+
+.logo-section img, .challenge-description img {
+    margin-bottom: 20px;
+}
+
+.small-image {
+    width: 300px; /* Augmenter la largeur */
+    height: auto; /* Garder le ratio de l'image */
+}
+
+.video-section {
+    margin: 20px 0;
+}
+
+video {
+    width: 100%; /* Utiliser toute la largeur du conteneur */
+    max-height: 500px; /* Limiter la hauteur maximale */
+    height: auto; /* Garder le ratio de l'image */
+}
+
+button {
+    padding: 15px 30px; /* Augmenter la marge intérieure */
+    background-color: #7D3C98; /* Couleur violette */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em; /* Augmenter la taille de police */
+    margin-top: 30px;
+    border-radius: 5px; /* Ajouter des coins arrondis */
+}
+
+button:hover {
+    background-color: #5D2E76;
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 1.5em; /* Augmenter la taille de police */
+    font-weight: bold;
+}
+
+.redirection-link .styled-link {
+    display: inline-block;
+    padding: 15px 30px; /* Augmenter la marge intérieure pour correspondre au bouton */
+    background-color: #7D3C98; /* Couleur violette */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em; /* Augmenter la taille de police pour correspondre au bouton */
+    margin-top: 30px;
+    border-radius: 5px; /* Ajouter des coins arrondis */
+}
+
+.redirection-link .styled-link:hover {
+    background-color: #5D2E76;
+}
+
+#error-message {
+    display: none;
+    color: red;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur et la hauteur */
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fini !!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fini !!</h1>
+        <p>Merci d'avoir participé. Cette page est la fin du processus.</p>
+        <div id="error-message" style="display: none; color: red;">Retour en arrière interdit.</div>
+        <form id="feedback-form">
+            <label for="feedback">Vos commentaires :</label>
+            <textarea id="feedback" name="feedback" rows="5" cols="40" placeholder="Entrez vos commentaires ici..."></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <script>
+        // Empêche l'utilisateur de revenir à la page précédente et affiche un message d'erreur
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.pushState(null, null, location.href);
+            document.getElementById('error-message').style.display = 'block';
+        };
+
+        // Gérer l'envoi du formulaire de commentaires
+        document.getElementById('feedback-form').onsubmit = function(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('feedback').value;
+
+            fetch('/feedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ feedback: feedback })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                    // Vous pouvez ajouter des actions supplémentaires ici si nécessaire
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi des commentaires :', error);
+                alert('Erreur lors de l\'envoi des commentaires.');
+            });
+        };
+    </script>
+</body>
+</html>
