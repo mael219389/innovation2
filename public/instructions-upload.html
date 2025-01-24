@@ -10,15 +10,16 @@
     <div class="container">
         <h1>CONSIGNES</h1>
         <p>Créer un logo représentant votre place de consultant chez Hardis Group.</p>
+        <p>Vous pouvez utiliser <a href=https://copilot.microsoft.com target="_blank">Copilot</a> pour cela.</p>
         <form id="upload-form" method="POST" enctype="multipart/form-data">
-            <label for="file-upload">Déposez votre fichier ici :</label>
+            <label for="file-upload">Déposez votre fichier ici : </label>
             <input type="file" id="file-upload" name="file-upload" required>
             <button type="submit">Envoyer</button>
         </form>
 
         <div id="file-upload-response" style="display: none; color: green;"></div>
 
-        <div id="timer">Temps restant : <span id="time-remaining">10</span> secondes</div>
+        <div id="timer">Temps restant : <span id="time-remaining">120</span> secondes</div>
         <button type="button" onclick="goToFinished()">Continuer</button>
     </div>
     <script src="script.js"></script>

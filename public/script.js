@@ -30,7 +30,7 @@ function submitForm() {
 
 // Démarre le timer dès que la page est chargée
 window.onload = function() {
-    let timeRemaining = 10; // Temps en secondes
+    let timeRemaining = 120; // Temps en secondes
     const timerElement = document.getElementById('time-remaining');
     
     const countdown = setInterval(() => {
