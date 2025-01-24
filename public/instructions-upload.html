@@ -10,11 +10,19 @@
     <div class="container">
         <h1>CONSIGNES</h1>
         <p>Créer un logo représentant votre place de consultant chez Hardis Group.</p>
-        <form id="upload-form" method="POST" enctype="multipart/form-data">
+        <form id="upload-form" method="POST" action="/api/upload" enctype="multipart/form-data">
             <label for="file-upload">Déposez votre fichier ici :</label>
             <input type="file" id="file-upload" name="file-upload" required>
-            <button type="button" onclick="submitForm()">Envoyer</button>
+            <button type="submit">Envoyer</button>
         </form>
+
+        <h2>Commentaires</h2>
+        <form id="feedback-form" method="POST" action="/api/feedback">
+            <label for="feedback">Laissez vos commentaires :</label>
+            <textarea id="feedback" name="feedback" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+
         <div id="timer">Temps restant : <span id="time-remaining">10</span> secondes</div>
         <button type="button" onclick="goToFinished()">Continuer</button>
     </div>
