@@ -62,6 +62,27 @@ app.post('/feedback', (req, res) => {
     });
 });
 
+// Route pour lister les fichiers dans le dossier uploads
+app.get('/uploads', (req, res) => {
+    fs.readdir(uploadDir, (err, files) => {
+        if (err) {
+            return res.status(500).json({ message: 'Erreur lors de la récupération des fichiers' });
+        }
+        res.json({ files });
+    });
+});
+
+// Route pour télécharger un fichier spécifique
+app.get('/uploads/:filename', (req, res) => {
+    const filename = req.params.filename;
+    const filepath = path.join(uploadDir, filename);
+    res.download(filepath, err => {
+        if (err) {
+            return res.status(500).json({ message: 'Erreur lors du téléchargement du fichier' });
+        }
+    });
+});
+
 // Démarrer le serveur
 app.listen(PORT, () => {
     console.log(`Serveur en cours d'exécution sur http://localhost:${PORT}`);
